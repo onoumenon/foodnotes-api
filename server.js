@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === "production") {
   port = process.env.PORT;
   message = "Server is running in production";
 } else {
-  port = 8080;
+  port = 5050;
   message = `Server is running on http://localhost:${port}`;
 }
 

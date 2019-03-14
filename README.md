@@ -19,3 +19,11 @@ const port = process.env.NODE_ENV === "production" ? process.env.PORT : 8080;
 ## Deploy to Heroku
 
 See [instructions](https://devcenter.heroku.com/articles/heroku-cli) to deploy your project to Heroku with Heroku CLI.
+
+## View Heroku logs
+
+To view logs, run the following command.
+
+```sh
+heroku logs --tail
+```

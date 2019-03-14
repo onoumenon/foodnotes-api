@@ -1,0 +1,8 @@
+{
+  "books": [
+    { "id": 1, "title": "My First Title", "author": "James Bond" }
+  ],
+  "authors": [
+    { "id": 1, "name": "James Bond", "bookId": 1 }
+  ]
+}

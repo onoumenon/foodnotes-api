@@ -1,13 +1,11 @@
 const app = require("./app");
 
-let port, message;
+const port = process.env.PORT || 5555;
 
-if (process.env.NODE_ENV === "production") {
-  port = process.env.PORT;
-  message = "Server is running in production";
-} else {
-  port = 5050;
-  message = `Server is running on http://localhost:${port}`;
-}
-
-app.listen(port, () => console.log(message));
+app.listen(port, () => {
+  if (process.env.NODE_ENV === "production") {
+    console.log(`Server is running on Heroku with port number ${port}`);
+  } else {
+    console.log(`Server is running on http://localhost:${port}`);
+  }
+});

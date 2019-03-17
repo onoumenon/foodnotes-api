@@ -3,6 +3,8 @@ const express = require("express");
 const router = express.Router();
 const { books } = require("../data/db.json");
 
+const Book = require("../models/book");
+
 const filterBooksBy = (property, value) => {
   return books.filter(b => b[property] === value);
 };
@@ -34,9 +36,11 @@ router
     }
   })
   .post(verifyToken, (req, res) => {
-    const book = req.body;
-    book.id = uuid();
-    res.status(201).json(req.body);
+    const book = new Book(req.body);
+    book.save(err => {
+      if (err) return res.status(500).send(err);
+      return res.status(201).json(book);
+    });
   });
 
 router

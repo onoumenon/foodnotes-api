@@ -1,11 +1,20 @@
 const app = require("./app");
+const mongoose = require("mongoose");
 
-const port = process.env.PORT || 5555;
+const MONGODB_URI = "mongodb://localhost/my-first-db";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+const db = mongoose.connection;
 
-app.listen(port, () => {
-  if (process.env.NODE_ENV === "production") {
-    console.log(`Server is running on Heroku with port number ${port}`);
-  } else {
-    console.log(`Server is running on http://localhost:${port}`);
+db.on("error", err => {
+  console.error("Unable to connect to the database", err);
+});
+
+const server = app.listen(process.env.PORT || 5555, () => {
+  let { address, port } = server.address();
+
+  if (address === "::") {
+    address = "http://localhost";
   }
+
+  console.log(`Server is running on ${address}:${port}`);
 });

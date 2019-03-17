@@ -2,6 +2,16 @@
 
 A simple books api service
 
+## Getting started
+
+To start the project in development mode, run:
+
+```sh
+npm run dev
+```
+
+This will start the local MongoDB server and the Express server.
+
 ## Prepare your project for production
 
 Set your Node.js environment to production in `package.json`

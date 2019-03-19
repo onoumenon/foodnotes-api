@@ -1,20 +1,23 @@
 const app = require("./app");
 const mongoose = require("mongoose");
 
-const MONGODB_URI = "mongodb://localhost/my-first-db";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/books-db");
 const db = mongoose.connection;
 
 db.on("error", err => {
-  console.error("Unable to connect to the database", err);
+  console.error("Unable to connect to database", err);
 });
 
-const server = app.listen(process.env.PORT || 5555, () => {
-  let { address, port } = server.address();
+db.on("connected", err => {
+  console.log("Successfully connected to the database");
+});
 
-  if (address === "::") {
-    address = "http://localhost";
-  }
-
-  console.log(`Server is running on ${address}:${port}`);
+db.once("connected", () => {
+  app.listen(port, () => {
+    if (process.env.NODE_ENV === "production") {
+      console.log(`Server is running on Heroku with port number ${port}`);
+    } else {
+      console.log(`Server is running on http://localhost:${port}`);
+    }
+  });
 });

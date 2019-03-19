@@ -1,6 +1,10 @@
 const request = require("supertest");
 const app = require("../../app");
 
+const { MongoMemoryServer } = require("mongodb-memory-server");
+const mongoose = require("mongoose");
+const Book = require("../../models/book");
+
 const { books } = require("../../data/db.json");
 
 const route = (params = "") => {
@@ -9,20 +13,58 @@ const route = (params = "") => {
 };
 
 describe("Books", () => {
+  let mongoServer;
+  let db;
+
+  beforeAll(async () => {
+    jest.setTimeout(120000);
+    mongoServer = new MongoMemoryServer();
+    const mongoUri = await mongoServer.getConnectionString();
+    await mongoose.connect(mongoUri);
+    db = mongoose.connection;
+  });
+
+  afterAll(async () => {
+    mongoose.disconnect();
+    await mongoServer.stop();
+  });
+
   describe("[GET] Search for books", () => {
+    beforeEach(async () => {
+      await Book.insertMany([
+        { title: "Animal Farm", author: "George Orwell" },
+        { title: "1984", author: "George Orwell" },
+        { title: "Homage to Catalonia", author: "George Orwell" }
+      ]);
+    });
+
+    afterEach(async () => {
+      await db.dropCollection("books");
+    });
+
     test("returns all books", () => {
+      const expectedBooks = [
+        { title: "Animal Farm", author: "George Orwell" },
+        { title: "1984", author: "George Orwell" },
+        { title: "Homage to Catalonia", author: "George Orwell" }
+      ];
+
       return request(app)
         .get(route())
         .expect("content-type", /json/)
         .expect(200)
-        .expect([
-          { id: "1", title: "Animal Farm", author: "George Orwell" },
-          { id: "2", title: "1984", author: "George Orwell" },
-          { id: "3", title: "Homage to Catalonia", author: "George Orwell" },
-          { id: "4", title: "The Road to Wigan Pier", author: "George Orwell" },
-          { id: "5", title: "Brave New World", author: "Aldous Huxley" },
-          { id: "6", title: "Fahrenheit 451", author: "Ray Bradbury" }
-        ]);
+        .then(res => {
+          const books = res.body;
+
+          expect(books.length).toBe(3);
+
+          books.forEach((book, index) => {
+            expect(book).toEqual(expect.objectContaining(expectedBooks[index]));
+
+            expect(book.title).toBe(expectedBooks[index].title);
+            expect(book.author).toBe(expectedBooks[index].author);
+          });
+        });
     });
 
     test("returns books matching the title query", () => {
@@ -31,21 +73,31 @@ describe("Books", () => {
         .query({ title: "1984" })
         .expect("content-type", /json/)
         .expect(200)
-        .expect([{ id: "2", title: "1984", author: "George Orwell" }]);
+        .then(res => {
+          const book = res.body[0];
+          expect(book.title).toEqual("1984");
+        });
     });
 
     test("returns books matching the author query", () => {
+      const expectedBooks = [
+        { title: "Animal Farm", author: "George Orwell" },
+        { title: "1984", author: "George Orwell" },
+        { title: "Homage to Catalonia", author: "George Orwell" },
+        { title: "The Road to Wigan Pier", author: "George Orwell" }
+      ];
+
       return request(app)
         .get(route())
         .query({ author: "George Orwell" })
         .expect("content-type", /json/)
         .expect(200)
-        .expect([
-          { id: "1", title: "Animal Farm", author: "George Orwell" },
-          { id: "2", title: "1984", author: "George Orwell" },
-          { id: "3", title: "Homage to Catalonia", author: "George Orwell" },
-          { id: "4", title: "The Road to Wigan Pier", author: "George Orwell" }
-        ]);
+        .then(res => {
+          const books = res.body;
+          books.forEach((book, index) => {
+            expect(book).toEqual(expect.objectContaining(expectedBooks[index]));
+          });
+        });
     });
   });
 
@@ -76,11 +128,12 @@ describe("Books", () => {
         .send({ title: "The Handmaid's Tale", author: "Margaret Atwood" })
         .expect(201)
         .then(res => {
-          expect(res.body).toEqual({
-            id: expect.any(String),
-            title: "The Handmaid's Tale",
-            author: "Margaret Atwood"
-          });
+          expect(res.body).toEqual(
+            expect.objectContaining({
+              title: "The Handmaid's Tale",
+              author: "Margaret Atwood"
+            })
+          );
         });
     });
   });

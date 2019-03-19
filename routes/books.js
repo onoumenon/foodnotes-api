@@ -28,17 +28,21 @@ router
     const { author, title } = req.query;
 
     if (title) {
-      res.json(filterBooksBy("title", title));
-    } else if (author) {
-      res.json(filterBooksBy("author", author));
-    } else {
-      res.json(books);
+      return Book.find({ title }).then(book => res.json(book));
     }
+
+    if (author) {
+      return Book.find({ author }).then(book => res.json(book));
+    }
+
+    return Book.find().then(book => res.json(book));
   })
   .post(verifyToken, (req, res) => {
     const book = new Book(req.body);
-    book.save(err => {
-      if (err) return res.status(500).send(err);
+    book.save((err, book) => {
+      if (err) {
+        return res.status(500).end();
+      }
       return res.status(201).json(book);
     });
   });

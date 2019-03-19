@@ -50,20 +50,25 @@ router
 router
   .route("/:id")
   .put((req, res) => {
-    const book = books.find(b => b.id === req.params.id);
-    if (book) {
-      res.status(202).json(req.body);
-    } else {
-      res.sendStatus(400);
-    }
+    Book.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true },
+      (err, book) => {
+        return res.status(202).json(book);
+      }
+    );
   })
   .delete((req, res) => {
-    const book = books.find(b => b.id === req.params.id);
-    if (book) {
-      res.sendStatus(202);
-    } else {
-      res.sendStatus(400);
-    }
+    Book.findByIdAndDelete(req.params.id, (err, book) => {
+      if (err) {
+        return res.sendStatus(500);
+      }
+      if (!book) {
+        return res.sendStatus(404);
+      }
+      return res.sendStatus(202);
+    });
   });
 
 module.exports = router;

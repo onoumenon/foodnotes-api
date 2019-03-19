@@ -24,24 +24,24 @@ describe("Books", () => {
     db = mongoose.connection;
   });
 
+  beforeEach(async () => {
+    await Book.insertMany([
+      { title: "Animal Farm", author: "George Orwell" },
+      { title: "1984", author: "George Orwell" },
+      { title: "Homage to Catalonia", author: "George Orwell" }
+    ]);
+  });
+
+  afterEach(async () => {
+    await db.dropCollection("books");
+  });
+
   afterAll(async () => {
     mongoose.disconnect();
     await mongoServer.stop();
   });
 
   describe("[GET] Search for books", () => {
-    beforeEach(async () => {
-      await Book.insertMany([
-        { title: "Animal Farm", author: "George Orwell" },
-        { title: "1984", author: "George Orwell" },
-        { title: "Homage to Catalonia", author: "George Orwell" }
-      ]);
-    });
-
-    afterEach(async () => {
-      await db.dropCollection("books");
-    });
-
     test("returns all books", () => {
       const expectedBooks = [
         { title: "Animal Farm", author: "George Orwell" },
@@ -55,12 +55,7 @@ describe("Books", () => {
         .expect(200)
         .then(res => {
           const books = res.body;
-
-          expect(books.length).toBe(3);
-
           books.forEach((book, index) => {
-            expect(book).toEqual(expect.objectContaining(expectedBooks[index]));
-
             expect(book.title).toBe(expectedBooks[index].title);
             expect(book.author).toBe(expectedBooks[index].author);
           });
@@ -95,14 +90,15 @@ describe("Books", () => {
         .then(res => {
           const books = res.body;
           books.forEach((book, index) => {
-            expect(book).toEqual(expect.objectContaining(expectedBooks[index]));
+            expect(book.title).toBe(expectedBooks[index].title);
+            expect(book.author).toBe(expectedBooks[index].author);
           });
         });
     });
   });
 
   describe("[POST] Creates a new book", () => {
-    test("deny access when no token is given", () => {
+    test("denies access when no token is given", () => {
       return request(app)
         .post(route())
         .send({ title: "The Handmaid's Tale", author: "Margaret Atwood" })
@@ -111,7 +107,7 @@ describe("Books", () => {
         });
     });
 
-    test("deny access when incorrect token is given", () => {
+    test("denies access when invalid token is given", () => {
       return request(app)
         .post(route())
         .set("Authorization", "Bearer some-invalid-token")
@@ -121,42 +117,43 @@ describe("Books", () => {
         });
     });
 
-    test("grant access when correct token is given", () => {
-      return request(app)
+    test("creates a new book record in the database", async () => {
+      const res = await request(app)
         .post(route())
         .set("Authorization", "Bearer my-awesome-token")
         .send({ title: "The Handmaid's Tale", author: "Margaret Atwood" })
-        .expect(201)
-        .then(res => {
-          expect(res.body).toEqual(
-            expect.objectContaining({
-              title: "The Handmaid's Tale",
-              author: "Margaret Atwood"
-            })
-          );
-        });
+        .expect(201);
+
+      expect(res.body.title).toBe("The Handmaid's Tale");
+      expect(res.body.author).toBe("Margaret Atwood");
+
+      const book = await Book.findOne({ title: "The Handmaid's Tale" });
+      expect(book.title).toBe("The Handmaid's Tale");
+      expect(book.author).toBe("Margaret Atwood");
     });
   });
 
   describe("[PUT] Edits an existing book", () => {
-    test("successfully edits a book", () => {
-      const id = "5";
-      return request(app)
-        .put(route(id))
+    test("edits a book's title and author", async () => {
+      const { _id } = await Book.findOne({ title: "1984" });
+
+      const res = await request(app)
+        .put(route(_id))
         .send({
-          id: 5,
           title: "The Perennial Philosophy",
           author: "Aldous Huxley"
         })
-        .expect(202)
-        .expect({
-          id: 5,
+        .expect(202);
+
+      expect(res.body).toEqual(
+        expect.objectContaining({
           title: "The Perennial Philosophy",
           author: "Aldous Huxley"
-        });
+        })
+      );
     });
 
-    test("fails as there is no such book", () => {
+    test("returns 400 Bad Request as there is no such book", () => {
       const id = "100";
       return request(app)
         .put(route(id))
@@ -172,48 +169,22 @@ describe("Books", () => {
   });
 
   describe("[DELETE] Removes an existing book", () => {
-    test("successfully removes a book", () => {
-      const id = "1";
-      return request(app)
-        .delete(route(id))
-        .expect(202);
-    });
+    test("removes a book from the database", async () => {
+      const { _id } = await Book.findOne({ title: "1984" });
 
-    test("fails as there is no such book", done => {
-      const id = "100";
-      request(app)
-        .delete(route(id))
-        .expect(400, done);
-    });
-
-    test("fails as there is no such book", () => {
-      const id = "100";
-      return request(app)
-        .delete(route(id))
-        .ok(res => res.status === 400)
-        .then(res => {
-          expect(res.status).toBe(400);
-        });
-    });
-
-    test("fails as there is no such book", async () => {
-      const id = "100";
       await request(app)
-        .delete(route(id))
-        .ok(res => res.status === 400)
-        .then(res => {
-          expect(res.status).toBe(400);
-        });
+        .delete(route(_id))
+        .expect(202);
+
+      const book = await Book.findById(_id);
+      expect(book).toBe(null);
     });
 
-    test("fails as there is no such book", () => {
-      const id = "100";
-      return request(app)
-        .delete(route(id))
-        .ok(res => res.status === 400)
-        .then(res => {
-          expect(res.status).toBe(400);
-        });
+    test("returns 404 Not Found as there is no such book", done => {
+      const _id = "5c8fb5c41529bf25dcba41a7";
+      request(app)
+        .delete(route(_id))
+        .expect(404, done);
     });
   });
 });

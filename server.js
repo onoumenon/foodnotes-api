@@ -1,5 +1,6 @@
 const app = require("./app");
 const mongoose = require("mongoose");
+const port = process.env.PORT || 5555;
 
 mongoose.connect("mongodb://localhost/books-db");
 const db = mongoose.connection;

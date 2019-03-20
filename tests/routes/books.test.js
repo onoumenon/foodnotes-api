@@ -1,11 +1,8 @@
 const request = require("supertest");
-const app = require("../../app");
-
-const { MongoMemoryServer } = require("mongodb-memory-server");
 const mongoose = require("mongoose");
+const { MongoMemoryServer } = require("mongodb-memory-server");
+const app = require("../../app");
 const Book = require("../../models/book");
-
-const { books } = require("../../data/db.json");
 
 const route = (params = "") => {
   const path = "/api/v1/books";
@@ -13,14 +10,18 @@ const route = (params = "") => {
 };
 
 describe("Books", () => {
-  let mongoServer;
+  let mongod;
   let db;
 
   beforeAll(async () => {
     jest.setTimeout(120000);
-    mongoServer = new MongoMemoryServer();
-    const mongoUri = await mongoServer.getConnectionString();
-    await mongoose.connect(mongoUri);
+    mongod = new MongoMemoryServer();
+    const uri = await mongod.getConnectionString();
+    await mongoose.connect(uri, {
+      autoReconnect: true,
+      reconnectTries: Number.MAX_VALUE,
+      reconnectInterval: 1000
+    });
     db = mongoose.connection;
   });
 
@@ -38,7 +39,7 @@ describe("Books", () => {
 
   afterAll(async () => {
     mongoose.disconnect();
-    await mongoServer.stop();
+    await mongod.stop();
   });
 
   describe("[GET] Search for books", () => {

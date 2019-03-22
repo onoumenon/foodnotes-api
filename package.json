@@ -9,7 +9,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server.js",
     "start:db": "mongod --dbpath ~/data/db",
-    "start:server": "nodemon server.js",
+    "start:server": "nodemon --inspect server.js",
     "start:debug": "nodemon --inspect-brk server.js",
     "dev": "npm run start:db & npm run start:server",
     "dev:debug": "npm run start:db & npm run start:debug",
@@ -20,6 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.5",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",

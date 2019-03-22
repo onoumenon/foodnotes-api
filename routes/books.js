@@ -1,24 +1,33 @@
 const uuid = require("uuid/v4");
 const express = require("express");
-const router = express.Router();
-const { books } = require("../data/db.json");
-
+const jwt = require("jsonwebtoken");
 const Book = require("../models/book");
+const User = require("../models/user");
 
-const filterBooksBy = (property, value) => {
-  return books.filter(b => b[property] === value);
+const router = express.Router();
+
+const oldVerifyToken = (req, res, next) => {
+  const { authorization } = req.headers;
+
+  if (authorization && authorization === "Bearer my-awesome-token") {
+    return next();
+  }
+
+  return res.sendStatus(403);
 };
 
-const verifyToken = (req, res, next) => {
-  const { authorization } = req.headers;
-  if (!authorization) {
-    res.sendStatus(403);
-  } else {
-    if (authorization === "Bearer my-awesome-token") {
-      next();
-    } else {
-      res.sendStatus(403);
-    }
+const verifyToken = async (req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.sendStatus(403);
+  }
+
+  try {
+    const token = req.headers.authorization.split("Bearer ")[1];
+    console.log(token);
+    const data = await jwt.verify(token, "THIS IS SUPER SECRET");
+    return next();
+  } catch {
+    return res.sendStatus(403);
   }
 };
 

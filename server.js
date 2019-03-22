@@ -1,12 +1,16 @@
 const app = require("./app");
 const mongoose = require("mongoose");
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
 }
 
 const port = process.env.PORT;
 const mongodbUri = process.env.MONGODB_URI;
+
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
 
 mongoose.connect(mongodbUri);
 const db = mongoose.connection;

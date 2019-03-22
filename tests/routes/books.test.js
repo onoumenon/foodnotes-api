@@ -1,8 +1,15 @@
 const request = require("supertest");
 const mongoose = require("mongoose");
+
 const { MongoMemoryServer } = require("mongodb-memory-server");
 const app = require("../../app");
 const Book = require("../../models/book");
+
+jest.mock("jsonwebtoken");
+const jwt = require("jsonwebtoken");
+
+jest.mock("../../models/user");
+const User = require("../../models/user");
 
 const route = (params = "") => {
   const path = "/api/v1/books";
@@ -17,6 +24,11 @@ describe("Books", () => {
     jest.setTimeout(120000);
     mongod = new MongoMemoryServer();
     const uri = await mongod.getConnectionString();
+
+    mongoose.set("useNewUrlParser", true);
+    mongoose.set("useFindAndModify", false);
+    mongoose.set("useCreateIndex", true);
+
     await mongoose.connect(uri, {
       autoReconnect: true,
       reconnectTries: Number.MAX_VALUE,
@@ -99,6 +111,10 @@ describe("Books", () => {
   });
 
   describe("[POST] Creates a new book", () => {
+    afterEach(() => {
+      jwt.verify.mockReset();
+    });
+
     test("denies access when no token is given", () => {
       return request(app)
         .post(route())
@@ -109,6 +125,8 @@ describe("Books", () => {
     });
 
     test("denies access when invalid token is given", () => {
+      jwt.verify.mockRejectedValueOnce();
+
       return request(app)
         .post(route())
         .set("Authorization", "Bearer some-invalid-token")
@@ -119,6 +137,8 @@ describe("Books", () => {
     });
 
     test("creates a new book record in the database", async () => {
+      jwt.verify.mockResolvedValueOnce({ id: 123 });
+
       const res = await request(app)
         .post(route())
         .set("Authorization", "Bearer my-awesome-token")

@@ -13,6 +13,6 @@ app.use(becors);
 
 // routes
 app.use("/", require("./routes/index"));
-app.use("/api/v1/books", require("./routes/books"));
+app.use("/api/v1/places", require("./routes/places"));
 
 module.exports = app;

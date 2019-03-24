@@ -1,18 +1,19 @@
-# 📚 Books API
+# 🥘 FOODNOTES API
 
-A simple books api service
+A simple api service for taking notes on food places
 
 ## Getting started
 
-To start the project in development mode, run:
+To start the project in development mode:
 
 ```sh
-npm run dev
+start your mongo server
+and then in CLI: npm run dev
 ```
 
 This will start the local MongoDB server and the Express server.
 
-## Prepare your project for production
+## Prepare for production
 
 Set your Node.js environment to production in `package.json`
 

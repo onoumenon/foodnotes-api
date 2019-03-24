@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-- 11.8.0
+  - 11.8.0
 deploy:
   provider: heroku
   api_key:
-    secure: mQqFifYg1iaz1WAqeJb56mdRr88Tlbqzn67kSYDRTkICuPrDaFqoH74XTyMXdldb5gzmUo46/IStBkRUrfpGu4vTjlYY1G8mKkqZZn00K3S946qWT7SrsKit5NVO+iDHA6EfQ//MWYel25H+syZGw4mBZeqdqoIiD6Xd+Mqtfh6DMMafbCZgouWTTpGC9/Wt1p/9MrQFPvjiWNEHfQQUekgxtx0UsswiPt7jTTJkspWU+Y1DhKaJjNYJTgfHAkC4ILmZwIe+eURZsRU7mm5NFlbCbjL8njYD2YmrWZXNzEFM0LtijzU3Vhphtrc/bZw/2/W4zaemF2rju9G3SNzyltVti4nRhpGyUoHJmxiyRXx6PmbMHRcaVtlZeDSIKkRm2cca8MCJ3F9IDkrUvqn8OLd1iuYwULiKaoDz3bxyMJPIIgX9Zo6QBhaibyiOs5lkvAvR3Nwc3F3hEoKtfSYvR8qMBkzOi2RYlKZMuXYyEJYDCGAfxwAQBjc8xqWDWbopem/HtrPttyH3h5X7uBSD57YsSAvMy4v+XLNlHHVpW25q26Xut1q6N2XBqtGXUNli3/5BdF0fAhTmsRHHXBVM13vOOisJg45cDIlDDg4hFhhLV1BgtGyDdaPvwMQijZoOPHZ8j+Qaic4SKCehLibp1rFACIn37pyvtfr95MDF1UQ=
-  app: books-api-jumpstart
+    secure: api key secure here
+  app: app-name-here
   on:
-    repo: jsstrn/books-api
+    repo: onoumenon/foodnotes-api

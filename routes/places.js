@@ -1,20 +1,8 @@
-const uuid = require("uuid/v4");
 const express = require("express");
-const jwt = require("jsonwebtoken");
-const Book = require("../models/book");
-const User = require("../models/user");
+const Place = require("../models/place");
+const uuidv1 = require("uuid/v1");
 
 const router = express.Router();
-
-const oldVerifyToken = (req, res, next) => {
-  const { authorization } = req.headers;
-
-  if (authorization && authorization === "Bearer my-awesome-token") {
-    return next();
-  }
-
-  return res.sendStatus(403);
-};
 
 const verifyToken = async (req, res, next) => {
   if (!req.headers.authorization) {
@@ -34,46 +22,43 @@ const verifyToken = async (req, res, next) => {
 router
   .route("/")
   .get((req, res) => {
-    const { author, title } = req.query;
+    const { notes } = req.query;
 
-    if (title) {
-      return Book.find({ title }).then(book => res.json(book));
+    if (notes) {
+      return Place.find({ notes }).then(place => res.json(place));
     }
 
-    if (author) {
-      return Book.find({ author }).then(book => res.json(book));
-    }
-
-    return Book.find().then(book => res.json(book));
+    return Place.find().then(place => res.json(place));
   })
   .post(verifyToken, (req, res) => {
-    const book = new Book(req.body);
-    book.save((err, book) => {
+    const place = new Place(req.body);
+    place._id = uuidv1();
+    place.save((err, place) => {
       if (err) {
         return res.status(500).end();
       }
-      return res.status(201).json(book);
+      return res.status(201).json(place);
     });
   });
 
 router
   .route("/:id")
   .put((req, res) => {
-    Book.findByIdAndUpdate(
+    Place.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true },
-      (err, book) => {
-        return res.status(202).json(book);
+      (err, place) => {
+        return res.status(202).json(place);
       }
     );
   })
   .delete((req, res) => {
-    Book.findByIdAndDelete(req.params.id, (err, book) => {
+    Place.findByIdAndDelete(req.params.id, (err, place) => {
       if (err) {
         return res.sendStatus(500);
       }
-      if (!book) {
+      if (!place) {
         return res.sendStatus(404);
       }
       return res.sendStatus(202);

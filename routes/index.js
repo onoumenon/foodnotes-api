@@ -9,7 +9,7 @@ router.route("/").get((req, res) => {
   res.sendStatus(200);
 });
 
-const secret = "THIS IS SUPER SECRET";
+const secret = "SECRET";
 
 const isAuthenticated = async (username, password) => {
   try {
@@ -21,27 +21,14 @@ const isAuthenticated = async (username, password) => {
   }
 };
 
-router
-  .route("/token")
-  .get(async (req, res) => {
-    const { username, password } = req.body;
-
-    const user = await isAuthenticated(username, password);
-    if (!user) return res.status(401).end();
-
-    const payload = { username };
-    const token = await jwt.sign(payload, secret, { expiresIn: "24h" });
-
-    return res.status(200).json({ token });
-  })
-  .post(async (req, res) => {
-    if (!req.headers.authorization) {
-      res.sendStatus(401);
-    }
-    const token = req.headers.authorization.split("Bearer ")[1];
-    const userData = await jwt.verify(token, secret);
-    return res.status(200).json(userData);
-  });
+router.route("/token").post(async (req, res) => {
+  if (!req.headers.authorization) {
+    res.sendStatus(401);
+  }
+  const token = req.headers.authorization.split("Bearer ")[1];
+  const userData = await jwt.verify(token, secret);
+  return res.status(200).json(userData);
+});
 
 router.route("/register").post(async (req, res) => {
   try {
@@ -57,10 +44,13 @@ router.route("/register").post(async (req, res) => {
 router.route("/login").post(async (req, res) => {
   try {
     const { username, password } = req.body;
-    if (await isAuthenticated(username, password)) {
-      return res.status(200).end("You are logged in");
+    const validLogin = await isAuthenticated(username, password);
+    if (!validLogin) {
+      throw new Error("You are not authorized");
     }
-    throw new Error("You are not authorized");
+    const payload = { username };
+    const token = await jwt.sign(payload, secret, { expiresIn: "24h" });
+    return res.status(200).json({ token });
   } catch (err) {
     return res.status(401).send(err.message);
   }

@@ -11,7 +11,7 @@ jest.mock("../../models/place");
 const Place = require("../../models/place");
 
 const route = (params = "") => {
-  const path = "/api/v1/place";
+  const path = "/api/v1/places";
   return `${path}/${params}`;
 };
 

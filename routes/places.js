@@ -12,7 +12,7 @@ const verifyToken = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split("Bearer ")[1];
     console.log(token);
-    const data = await jwt.verify(token, "THIS IS SUPER SECRET");
+    const data = await jwt.verify(token, "SECRET");
     return next();
   } catch {
     return res.sendStatus(403);

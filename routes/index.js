@@ -27,6 +27,9 @@ router.route("/token").post(async (req, res) => {
   }
   const token = req.headers.authorization.split("Bearer ")[1];
   const userData = await jwt.verify(token, secret);
+  if (!userData) {
+    res.sendStatus(401);
+  }
   return res.status(200).json(userData);
 });
 
@@ -37,7 +40,7 @@ router.route("/register").post(async (req, res) => {
     await user.save();
     return res.sendStatus(204);
   } catch (err) {
-    return res.status(400).json(err);
+    return res.status(400).send(err.message);
   }
 });
 

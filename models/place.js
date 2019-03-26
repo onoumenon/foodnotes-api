@@ -7,6 +7,7 @@ const placeSchema = new mongoose.Schema(
       required: true,
       index: { unique: true, dropDups: true }
     },
+    uri: { type: String },
     address: { type: String, required: true },
     latitude: { type: Number },
     longitude: { type: Number },

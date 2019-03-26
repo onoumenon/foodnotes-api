@@ -453,6 +453,7 @@
     },
     {
       "name": "Liao Fan Hong Kong Soya Sauce Chicken Rice Noodle",
+      "uri": "https://imgur.com/RnyTtWs",
       "notes": "Chicken Rice, Chinese, Aircon, Cheap",
       "address": "78 Smith St, Singapore 058972",
       "latitude": 1.2834812,
@@ -467,11 +468,16 @@
     },
     {
       "name": "Kok Sen Restaurant",
+      "uri": "https://imgur.com/hFTHFi2",
       "notes": "Chinese, Zichar, Stuffy Place",
       "address": "30 Keong Saik Rd, Singapore 089137",
       "latitude": 1.2796085,
       "longitude": 103.8415152,
-      "openingHours": "12:00–14:00 AND 17:00–23:00, Closed: Mon",
+      "openingHours": {
+        "open": 17,
+        "close": 23,
+        "off": 1
+      },
       "contact": "",
       "recommend": "Yes"
     },
@@ -481,22 +487,32 @@
       "address": "20 Trengganu Street, #02-01, Singapore 058479",
       "latitude": 1.2828593,
       "longitude": 103.8438996,
-      "openingHours": "10:30–22:30",
+      "openingHours": {
+        "open": 10,
+        "close": 22,
+        "off": 9
+      },
       "contact": "",
       "recommend": "Maybe"
     },
     {
       "name": "Tang Kay Kee Fish Head Bee Hoon",
+      "uri": "https://imgur.com/PySlGrw",
       "notes": "Chinese, Zichar, (Get during lunch, dinner is run differently)",
       "address": "531A Upper Cross Street Singapore",
       "latitude": 1.2835082,
       "longitude": 103.8457971,
-      "openingHours": "11:00–14:30 AND 17:00–23:00",
+      "openingHours": {
+        "open": 11,
+        "close": 14,
+        "off": 9
+      },
       "contact": "",
       "recommend": "Yes"
     },
     {
       "name": "Ri Ri Hong Ma La Xiang Guo",
+      "uri": "https://imgur.com/UmrwIb6",
       "notes": "Chinese, Mala, Spicy, Group",
       "address": "32 New Market Road, #01-042/052, People’s Park Food Centre, Singapore",
       "latitude": 1.28967,
@@ -507,6 +523,7 @@
     },
     {
       "name": "Tong Heng",
+      "uri": "https://imgur.com/CiXUduH",
       "notes": "Chinese, Dessert, Pastry (Egg Tart), Cheap",
       "address": "285 South Bridge Road, Singapore",
       "latitude": 1.2815821,

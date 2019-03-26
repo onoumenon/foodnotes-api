@@ -46,17 +46,15 @@ router
     }
 
     if (notes) {
-      return Place.findOne({ notes: notesRegex }).then(place =>
-        res.json(place)
-      );
+      return Place.find({ notes: notesRegex }).then(place => res.json(place));
     }
     if (name) {
-      return Place.findOne({ name: nameRegex }).then(place => res.json(place));
+      return Place.find({ name: nameRegex }).then(place => res.json(place));
     }
 
     return Place.find().then(place => res.json(place));
   })
-  .post(verifyToken, async (req, res) => {
+  .post(async (req, res) => {
     try {
       const place = new Place(req.body);
       await Place.init();

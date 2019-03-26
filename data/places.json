@@ -7,8 +7,8 @@
       "latitude": 1.2793519,
       "longitude": 103.8466661,
       "openingHours": {
-        "open": 800,
-        "close": 1200,
+        "open": 8,
+        "close": 12,
         "off": 0
       },
       "contact": "62211155",
@@ -20,8 +20,11 @@
       "address": "100 Orchard Road, #03-25 Lobby Level, Concord Hotel  Singapore 238840 , Singapore",
       "latitude": 1.28967,
       "longitude": 103.85007,
-      "openingHours": "12:00–15:00 AND 18:00–22:00",
-      "closingTime": 15,
+      "openingHours": {
+        "open": 12,
+        "close": 22,
+        "off": 0
+      },
       "contact": "6732 2911",
       "recommend": "Unknown"
     },
@@ -454,7 +457,11 @@
       "address": "78 Smith St, Singapore 058972",
       "latitude": 1.2834812,
       "longitude": 103.8433048,
-      "openingHours": "10:30–20:30",
+      "openingHours": {
+        "open": 10,
+        "close": 20,
+        "off": 0
+      },
       "contact": "",
       "recommend": "Yes"
     },

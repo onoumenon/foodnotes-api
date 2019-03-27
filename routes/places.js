@@ -22,7 +22,7 @@ const verifyToken = async (req, res, next) => {
     }
     next();
   } catch (err) {
-    return res.status(403).send(err.message);
+    return res.status(403).json(err.message);
   }
 };
 
@@ -41,7 +41,7 @@ router
         .find({ off: { $ne: day } })
         .then(place => res.json(place))
         .catch(function(error) {
-          res.status(500).send(error);
+          res.status(500).json(error.message);
         });
     }
 
@@ -60,25 +60,27 @@ router
       await Place.init();
       newPlace = await place.save();
 
-      return res.status(201).send(newPlace);
+      return res.status(201).json("Success");
     } catch (err) {
-      return res.status(500).send(err.message);
+      return res.status(500).json(err.message);
     }
   });
 
 router
   .route("/:id")
-  .put((req, res) => {
-    Place.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true },
-      (err, place) => {
-        return res.status(202).json(place);
-      }
-    );
+  .put(async(req, res) => {
+    try {
+      const place = await Place.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+      )
+return res.status(202).json("Success");
+      
+    } catch (err) { return res.status(404).json(err.message)}
+    
   })
-  .delete((req, res) => {
+  .delete(async(req, res) => {
     Place.findByIdAndDelete(req.params.id, (err, place) => {
       if (err) {
         return res.sendStatus(500);
@@ -86,7 +88,7 @@ router
       if (!place) {
         return res.sendStatus(404);
       }
-      return res.sendStatus(202);
+      return res.status(202).json("Success");
     });
   });
 

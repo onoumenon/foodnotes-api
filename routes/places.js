@@ -29,16 +29,17 @@ const verifyToken = async (req, res, next) => {
 router
   .route("/")
   .get((req, res) => {
-    const { notes, name, time } = req.query;
+    const { notes, name, time, getOne } = req.query;
     const notesRegex = new RegExp(notes, "i");
     const nameRegex = new RegExp(name, "i");
+    const getOneRegex = new RegExp(getOne, "i");
 
     if (time) {
       const now = new Date(time);
       const day = parseInt(now.getDay(), 10);
       const hour = parseInt(now.getHours(), 10);
-      return Place.find({ close: { $gte: hour } })
-        .find({ off: { $ne: day } })
+      return Place.find({ "openingHours.close": { $gte: hour } })
+        .find({ "openingHours.off": { $ne: day } })
         .then(place => res.json(place))
         .catch(function(error) {
           res.status(500).json(error.message);
@@ -51,6 +52,11 @@ router
     if (name) {
       return Place.find({ name: nameRegex }).then(place => res.json(place));
     }
+    if (getOne) {
+      return Place.findOne({ name: getOneRegex }).then(place =>
+        res.json(place)
+      );
+    }
 
     return Place.find().then(place => res.json(place));
   })
@@ -58,7 +64,7 @@ router
     try {
       const place = new Place(req.body);
       await Place.init();
-      newPlace = await place.save();
+      await place.save();
 
       return res.status(201).json("Success");
     } catch (err) {
@@ -68,19 +74,17 @@ router
 
 router
   .route("/:id")
-  .put(async(req, res) => {
+  .put(async (req, res) => {
     try {
-      const place = await Place.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        { new: true }
-      )
-return res.status(202).json("Success");
-      
-    } catch (err) { return res.status(404).json(err.message)}
-    
+      await Place.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+      });
+      return res.status(202).json("Success");
+    } catch (err) {
+      return res.status(404).json(err.message);
+    }
   })
-  .delete(async(req, res) => {
+  .delete(async (req, res) => {
     Place.findByIdAndDelete(req.params.id, (err, place) => {
       if (err) {
         return res.sendStatus(500);

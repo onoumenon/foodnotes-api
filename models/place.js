@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+// regex to filter out unit number from addresses for openCage api
+const unitNoRegex = /#\d+-*\d+/g;
 
 const placeSchema = new mongoose.Schema(
   {
@@ -9,21 +11,32 @@ const placeSchema = new mongoose.Schema(
     },
     uri: { type: String },
     address: { type: String, required: true },
-    latitude: { type: Number },
-    longitude: { type: Number },
+    location: {
+      type: {
+        type: String,
+        enum: ["Point"]
+      },
+      coordinates: {
+        type: [Number]
+      }
+    },
     notes: { type: String },
-    open: { type: Number },
-    close: { type: Number },
-    off: { type: Number },
+    openingHours: {
+      open: { type: Number },
+      close: { type: Number },
+      off: { type: Array }
+    },
     recommend: { type: String },
     contact: { type: String }
   },
   { timestamps: false }
 );
 
+// placeSchema.pre("save", function(error, res, next) {});
+
 placeSchema.post("save", function(error, res, next) {
   if (error.name === "MongoError" && error.code === 11000) {
-    next(new Error("There was a duplicate key error"));
+    next(new Error("Place already exists. Did you want to edit the place?"));
   } else {
     next();
   }

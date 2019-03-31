@@ -41,7 +41,7 @@ router.route("/register").post(async (req, res) => {
     const { username, password } = req.body;
     const validLogin = await isAuthenticated(username, password);
     if (!validLogin) {
-      throw new Error("You are not authorized");
+      throw new Error("Sorry, something went wrong. Please try again.");
     }
     const payload = { username };
     const token = await jwt.sign(payload, secret, {
@@ -58,7 +58,7 @@ router.route("/login").post(async (req, res) => {
     const { username, password } = req.body;
     const validLogin = await isAuthenticated(username, password);
     if (!validLogin) {
-      throw new Error("You are not authorized");
+      throw new Error("Wrong Username/ Password");
     }
     const payload = { username };
     const token = await jwt.sign(payload, secret, { expiresIn: "240h" });

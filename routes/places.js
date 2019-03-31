@@ -64,7 +64,7 @@ router
       return Place.find({
         location: {
           $nearSphere: {
-            $geometry: { type: "Point", coordinates: coords },
+            $geometry: { type: "Point", coordinates: [coords[1], coords[0]] },
             $maxDistance: 0.3 * METERS_PER_MILE
           }
         }

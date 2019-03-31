@@ -87,7 +87,10 @@ placeSchema.pre("save", function(next) {
           data.results[0].annotations.timezone.name === "Asia/Singapore"
         ) {
           const place = data.results[0];
-          this.location.coordinates = [place.geometry.lng, place.geometry.lat];
+          this.location = {
+            type: "Point",
+            coordinates: [place.geometry.lng, place.geometry.lat]
+          };
         }
       } else if (data.status.code == 402) {
         throw new Error("Hit free trial limit");

@@ -29,7 +29,7 @@ const verifyToken = async (req, res, next) => {
 router
   .route("/")
   .get((req, res) => {
-    const { notes, name, time, getOne } = req.query;
+    const { notes, name, time, getOne, location } = req.query;
     const notesRegex = new RegExp(notes, "i");
     const nameRegex = new RegExp(name, "i");
     const getOneRegex = new RegExp(getOne, "i");
@@ -56,6 +56,19 @@ router
       return Place.findOne({ name: getOneRegex }).then(place =>
         res.json(place)
       );
+    }
+
+    if (location) {
+      const coords = location;
+      const METERS_PER_MILE = 1609.34;
+      return Place.find({
+        location: {
+          $nearSphere: {
+            $geometry: { type: "Point", coordinates: coords },
+            $maxDistance: 0.3 * METERS_PER_MILE
+          }
+        }
+      }).then(place => res.json(place));
     }
 
     return Place.find().then(place => res.json(place));

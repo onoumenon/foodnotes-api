@@ -1,0 +1,842 @@
+[
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Ah Chuan Oyster Omelette",
+    "uri": "https://i.imgur.com/eFKHE7Ol.jpg",
+    "notes": "Oyster Omelette, Chinese, Good Batter",
+    "address": "Toa Payoh Lor 7 Food Centre Stall #01-25, Singapore",
+    "openingHours": {
+      "open": 8,
+      "close": 12,
+      "off": [0]
+    },
+    "contact": "",
+    "recommend": "Yes"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8586074, 1.3256219]
+    },
+    "name": "Ah Hock Oyster Omelette",
+    "uri": "https://i.imgur.com/VpHD4jml.jpg",
+    "notes": "Chinese, Oyster Omelette",
+    "address": "Blk 90 Whampoa Dr #01-54 Whampoa Hawker Centre, Singapore",
+    "openingHours": {
+      "open": 12,
+      "close": 22,
+      "off": 0
+    },
+    "contact": "Contact: 84390434",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Bukit Merah View Carrot Cake",
+    "uri": "https://i.imgur.com/LXHphMzl.jpg",
+    "notes": "Chinese, Carrot Cake",
+    "address": "Bukit Merah View FC Blk 115 Bukit Merah View #01-37, Singapore",
+    "openingHours": {
+      "open": 7,
+      "close": 14,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.7602201, 1.3122899]
+    },
+    "name": "Bukit Purmei Lor Mee",
+    "uri": "https://i.imgur.com/lwP5DgTl.jpg",
+    "notes": "Lor Mee, Chinese, Savoury, Good Sauce",
+    "address": "Blk 501 West Coast Drive, Singapore 120501",
+    "openingHours": {
+      "open": 7,
+      "close": 14,
+      "off": [1, 2, 5]
+    },
+
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8665495, 1.3642229]
+    },
+    "name": "Chia Keng (Che Jian) Hokkien Mee, ",
+    "uri": "https://i.imgur.com/9169Dnal.jpg",
+    "notes": "Chinese, Hokkien Mee (Left hand side towards the front)",
+    "address": "Chomp Chomp Food Centre, Singapore",
+    "openingHours": {
+      "open": 6,
+      "close": 13,
+      "off": []
+    },
+
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Chye Kee Chwee Kway",
+    "uri": "https://i.imgur.com/1hkg3Sdl.jpg",
+    "notes": "Snack, Chwee Kway",
+    "address": "Blk 89 Pipit Road Market and Food Centre #01-129, Singapore",
+    "openingHours": {
+      "open": 7,
+      "close": 15,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8457131, 1.2816831]
+    },
+    "name": "Cugini",
+    "uri": "https://i.imgur.com/xFcxlO2l.jpg",
+    "notes": "Pasta, Italian",
+    "address": "87 Club Street #01-01 Singapore 069455 , Singapore",
+    "openingHours": {
+      "open": 6.5,
+      "close": 22.5,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8437543, 1.278849]
+    },
+    "name": "Cumi Bali Indonesian",
+    "uri": "https://i.imgur.com/xuqQQmZl.jpg",
+    "notes": "Indonesian",
+    "address": "66, Tanjong Pagar Road, Singapore 088487, Singapore",
+    "openingHours": {
+      "open": 18,
+      "close": 22,
+      "off": []
+    },
+
+    "contact": "Contact: 62206619",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Dove Desserts",
+    "uri": "https://i.imgur.com/IjDdz4xl.jpg",
+    "notes": "Chendol, Cheng Tng, Dessert, Less Sweet, Cheap, Not alot of Gula Melaka",
+    "address": "Blk 22 Toa Payoh Lor 7 #01-21, Singapore",
+    "openingHours": {
+      "open": 11,
+      "close": 20,
+      "off": [0, 1]
+    },
+    "contact": "Contact: 92725712",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.902947, 1.3137357]
+    },
+    "name": "Eng Seng Restaurant",
+    "uri": "https://i.imgur.com/su44UhJl.jpg",
+    "notes": "Chinese, Reserve early for Black Pepper Crab, Zichar",
+    "address": "247 Joo Chiat Pl, Singapore",
+    "openingHours": {
+      "open": 4.5,
+      "close": 20,
+      "off": []
+    },
+    "contact": "Contact: 64405560 / 91113564 Eunice",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.81944, 1.28583]
+    },
+    "name": "Fatty Cheong’s Char Siew",
+    "uri": "https://i.imgur.com/S1i8fne.jpg",
+    "notes": "Chinese, Char Siew,  (near POSB ATM), known for Bu Jian Tian char siew",
+    "address": "ABC Brickworks Food Centre 6 Jln Bukit Merah #01-120, Singapore",
+    "openingHours": {
+      "open": 11,
+      "close": 20.5,
+      "off": [4]
+    },
+    "contact": "Contact: 98824849, 94281983",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.9244926, 1.3124996]
+    },
+    "name": "Geylang Lor 29 Hokkien Mee",
+    "uri": "https://i.imgur.com/unudUfMl.jpg",
+    "notes": "Chinese, Hokkien Mee, brother's stall: Swee Guan, charcoal fried",
+    "address": "396 East Coast Road, Singapore",
+    "openingHours": {
+      "open": 11.5,
+      "close": 21.5,
+      "off": [1]
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.9130835, 1.3072623]
+    },
+    "name": "Golden City Carrot Cake",
+    "uri": "https://i.imgur.com/57J1KG6l.jpg",
+    "notes": "Chinese, Carrot Cake with Ikan Bilis and Crispy Fried Chye Poh",
+    "address": "1 Telok Kurau Road, Singapore",
+    "openingHours": {
+      "open": 7.5,
+      "close": 14,
+      "off": [2]
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Hai Kee Char Kway Teow",
+    "uri": "https://i.imgur.com/FoDwu1X.jpg",
+    "notes": "CKT, Chinese, Char Kway Teow, Savoury",
+    "address": "Telok Blangah Crescent Food Centre #01-102, Singapore",
+    "openingHours": {
+      "open": 17,
+      "close": 22,
+      "off": [0]
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Haig Road Putu Piring",
+    "uri": "https://i.imgur.com/Zpg9qGFl.jpg",
+    "notes": "Snack, Kueh, Malay, Sweet",
+    "address": "Blk 14 Haig Road, Haig Road Hawker Centre #01-08, Singapore",
+    "openingHours": {
+      "open": 11,
+      "close": 22,
+      "off": []
+    },
+    "contact": "Contact: 96883067",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Hainan Hokkien Mee",
+    "uri": "https://i.imgur.com/9M12vcgl.jpg",
+    "notes": "Chinese, Hokkien Mee, Dry, Bee Hoon added",
+    "address": "No 34 Golden Mile Food Centre, Singapore",
+    "openingHours": {
+      "open": 15,
+      "close": 21,
+      "off": [3]
+    },
+    "contact": "Contact: 62946798",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.9323833, 1.3188313]
+    },
+    "name": "Hill Street Char Kway Teow",
+    "uri": "https://i.imgur.com/BnZc32nl.jpg",
+    "notes": "Chinese, Char Kway Teow, CKT",
+    "address": "Blk 16, Bedok South Road, #01-187, Singapore 460016",
+    "openingHours": {
+      "open": 10,
+      "close": 16,
+      "off": [1]
+    },
+    "contact": "",
+    "recommend": "Yes"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8625836, 1.3048464]
+    },
+    "name": "Hillstreet Tai Hwa Pork Noodles",
+    "uri": "https://i.imgur.com/wpOPfFdl.jpg",
+    "notes": "Chinese, Bak Chor Mee, BCM, Nice Vinegar and Good Seaweed Soup Paired",
+    "address": "Blk 466 Crawford Lane #01-12, Singapore 190466",
+    "openingHours": {
+      "open": 9.5,
+      "close": 21,
+      "off": [1]
+    },
+    "contact": "Contact: 62927477",
+    "recommend": "Yes"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.9063597, 1.3023551]
+    },
+    "name": "Hilmi Sarabat Stall",
+    "uri": "https://i.imgur.com/pYNgYhX.jpg",
+    "notes": "Drink, Teh Tarik",
+    "address": "Marine Parade Food Centre #01-146, Singapore",
+    "openingHours": {
+      "open": 5.5,
+      "close": 23,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8466661, 1.2793519]
+    },
+    "name": "Hoo Kee Rice Dumplings",
+    "notes": "Chinese, Rice Dumpling",
+    "address": "Amoy Street Food Centre #01-18, Singapore",
+    "openingHours": {
+      "open": 8,
+      "close": 12,
+      "off": [0]
+    },
+
+    "contact": "Contact: 62211155",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8231561, 1.2814303]
+    },
+    "name": "Hui Ji Fishball Noodles and Yong Tau Foo",
+    "uri": "https://i.imgur.com/bAD9sXBl.jpg",
+    "notes": "Chinese, FIshball Noodles, Yong Tau Foo, YTF",
+    "address": "Tiong Bahru Food Centre #02-44, Singapore",
+    "openingHours": {
+      "open": 7,
+      "close": 14,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Jing Hua Sliced Fish Bee Hoon",
+    "uri": "https://i.imgur.com/S3ZEIFYl.jpg",
+    "notes": "Chinese, Sliced Fish Soup, Order without Bee Hoon",
+    "address": "Stall 77 Maxwell Road Food Centre, Singapore",
+    "openingHours": {
+      "open": 11,
+      "close": 20.5,
+      "off": [4]
+    },
+    "contact": "",
+    "recommend": "Yes"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8864937, 1.3383994]
+    },
+    "name": "Kay Lee Roast Meat",
+    "uri": "https://i.imgur.com/Nl7Tjaul.jpg",
+    "notes": "Roast Meat, Chinese",
+    "address": "125 Upper Paya Lebar Road, Singapore",
+    "openingHours": {
+      "open": 10,
+      "close": 19,
+      "off": [2]
+    },
+    "contact": "Contact: 67438778",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8415152, 1.2796085]
+    },
+    "name": "Kok Sen Restaurant",
+    "uri": "https://imgur.com/hFTHFi2l.jpg",
+    "notes": "Chinese, Zichar",
+    "address": "30 Keong Saik Rd, Singapore 089137",
+    "openingHours": {
+      "open": 17,
+      "close": 23,
+      "off": [1]
+    },
+    "contact": "",
+    "recommend": "Yes"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Kwong Satay",
+    "uri": "https://i.imgur.com/oH6jiIRl.jpg",
+    "notes": "Malay, Snack, Kushiyaki style Pork Belly Satay, Home orders available",
+    "address": "Geylang Lor 29 , Singapore",
+    "openingHours": {
+      "open": 17,
+      "close": 23,
+      "off": []
+    },
+    "contact": "Contact: 6565 0002 Judy",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8457971, 1.2835082]
+    },
+    "name": "Lee Kheong Roasted Delicacy",
+    "uri": "https://i.imgur.com/FuNYwCKl.jpg",
+    "notes": "Chinese, Char Siew, Standards have dropped",
+    "address": "531A Hong Lim Market & Food Centre #02-15, Upper Cross Street , Singapore",
+    "openingHours": {
+      "open": 10,
+      "close": 18,
+      "off": [0]
+    },
+    "contact": "Contact: 93804854 (William)",
+    "recommend": "No"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8433048, 1.2834812]
+    },
+    "name": "Liao Fan Hong Kong Soya Sauce Chicken Rice Noodle",
+    "notes": "Chicken Rice, Chinese",
+    "uri": "https://imgur.com/RnyTtWsl.jpg",
+    "address": "78 Smith St, Singapore 058972",
+    "openingHours": {
+      "open": 10.5,
+      "close": 20.5,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "Yes"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.82677, 1.2891495]
+    },
+    "name": "No Name Hainanese Curry Rice",
+    "uri": "https://i.imgur.com/2TmUqxRl.jpg",
+    "notes": "Chinese, Chicken Rice",
+    "address": "Blk 40 Beo Crescent, Singapore",
+    "openingHours": {
+      "open": 6.5,
+      "close": 15,
+      "off": [3]
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Nogawa",
+    "notes": "Japanese, Sushi, Expensive",
+    "uri": "https://i.imgur.com/prJ0I3Sl.jpg",
+    "address": "100 Orchard Road, #03-25 Lobby Level, Concord Hotel  Singapore 238840 , Singapore",
+    "openingHours": {
+      "open": 18,
+      "close": 22,
+      "off": []
+    },
+    "contact": "Contact: 6732 2911",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Oriole Cafe and Bar",
+    "uri": "https://i.imgur.com/veK163jl.jpg",
+    "notes": "Cafe, Bar, Drinks, Coffee, Brunch, Good Salmon Rosti",
+    "address": "96 Somerset Road #01-01 Pan Pacific Serviced Suites, Singapore",
+    "openingHours": {
+      "open": 8,
+      "close": 23,
+      "off": []
+    },
+    "contact": "Contact: 6238 8348",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Peramakan",
+    "uri": "https://i.imgur.com/XtOsQrhl.jpg",
+    "notes": "Peranakan, Babi Pongtay, Beef Rendang, Ikan Panggang",
+    "address": "Level 3 Keppel Club 10 Bukit Chermin Road S(109918), Singapore",
+    "openingHours": {
+      "open": 11,
+      "close": 15,
+      "off": []
+    },
+    "contact": "Contact: 63772829                                                                                 ",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8103742, 1.3062956]
+    },
+    "name": "Rakuichi Japanese Restaurant",
+    "uri": "https://i.imgur.com/PHa3mDYl.jpg",
+    "notes": "Japanese, Sashimi, Have a branch at Keong Saik called PlayBook",
+    "address": "Blk 10 Dempsey Road #01-22, Singapore",
+    "openingHours": {
+      "open": 11.5,
+      "close": 14.5,
+      "off": []
+    },
+    "contact": "Contact: 64742143",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Redhill Curry Rice",
+    "uri": "https://i.imgur.com/NgMK57El.jpg",
+    "notes": "Chinese, Curry Rice,  (Facing Main Road)",
+    "address": "Redhill Market and Food Centre, Blk 85 Red Hill Close, #01-95, Singapore",
+
+    "openingHours": {
+      "open": 10.5,
+      "close": 21.5,
+      "off": [0]
+    },
+    "contact": "Contact: 96523471",
+    "recommend": "Yes"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Ri Ri Hong Ma La Xiang Guo",
+    "notes": "Chinese, Mala, Spicy, Gave me diarrhea",
+    "uri": "https://imgur.com/UmrwIb6l.jpg",
+    "address": "32 New Market Road, #01-042/052, People’s Park Food Centre, Singapore",
+    "openingHours": {
+      "open": 11,
+      "close": 21,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "Maybe"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Sajis Indian Food",
+    "uri": "https://i.imgur.com/HxB88Bol.jpg",
+    "notes": "Indian Rojak, Indian Mee Siam, Brother's stall: 270 Queen St, 270, Singapore ",
+    "address": "Blk 262 Waterloo St #01-29 Nan Tai Eating House, Singapore",
+    "openingHours": {
+      "open": 9,
+      "close": 19,
+      "off": []
+    },
+    "contact": "Contact: Sabeek 81395647",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8150341, 1.2889966]
+    },
+    "name": "Seng Hong Coffeeshop",
+    "uri": "https://i.imgur.com/2Mmsk22l.jpg",
+    "notes": "Traditional Coffeeshop",
+    "address": "Blk 58 Lengkok Bahru , Singapore",
+    "openingHours": {
+      "open": 6,
+      "close": 18,
+      "off": [0]
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Seng Kee Bak Chor Mee",
+    "uri": "https://i.imgur.com/vPSHQXtl.jpg",
+    "notes": "Chinese, Bak Chor Mee, BCM, Go for the Fish Maw Soup and Fried Wantons",
+    "address": "Serangoon Gardens Food Centre Stall 4, Singapore",
+    "openingHours": {
+      "open": 7.5,
+      "close": 15,
+      "off": [1]
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8410785, 1.3769204]
+    },
+    "name": "Shanghai RenJia",
+    "uri": "https://i.imgur.com/ASEda3kl.jpg",
+    "notes": "Shanghai Dimsum, known for shen jian bao but noodles is better",
+    "address": "Blk 151 Ang Mo Kio Ave 5 #01-3046, Singapore",
+    "openingHours": {
+      "open": 11,
+      "close": 15,
+      "off": [1]
+    },
+    "contact": "Contact: 63686927",
+    "recommend": "Yes"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Shi Hui Yuan Hor Fun Specialty",
+    "uri": "https://i.imgur.com/qyOvRJTl.jpg",
+    "notes": "Chinese, Hor Fun",
+    "address": "Mei Ling Food Centre  Blk 159 Mei Chin Road #02-33, Singapore",
+    "openingHours": {
+      "open": 7.5,
+      "close": 14,
+      "off": [1, 2]
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.867097, 1.3637008]
+    },
+    "name": "Siang Hee Restaurant",
+    "uri": "https://i.imgur.com/s6jApqyl.jpg",
+    "notes": "Coffee Crab, Pumpkin Prawns, Pork Knuckles",
+    "address": "Serangoon Garden Food Centre, Stall 20, 49A Serangoon Garden Way 555945, Singapore",
+    "openingHours": {
+      "open": 11,
+      "close": 22.5,
+      "off": [1]
+    },
+    "contact": "Contact: 97364067 Ah Yoke",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.836844, 1.3549693]
+    },
+    "name": "Sin Ming Roti Prata",
+    "uri": "https://i.imgur.com/pmGZqWnl.jpg",
+    "notes": "Indian, Snack, Coin Prata",
+    "address": " Blk 24, #01-51, Sin Ming Road Singapore 570024, Singapore",
+    "openingHours": {
+      "open": 6,
+      "close": 19,
+      "off": []
+    },
+    "contact": "Contact: 64533893",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8457971, 1.2835082]
+    },
+    "name": "Tang Kay Kee Fish Head Bee Hoon",
+    "notes": "Chinese, Zichar, (Get during lunch, dinner is run differently)",
+    "uri": "https://imgur.com/PySlGrwl.jpg",
+    "address": "531A Upper Cross Street Singapore",
+    "openingHours": {
+      "open": 11,
+      "close": 14.5,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "Yes"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Tian Tian Chicken Rice",
+    "uri": "https://i.imgur.com/g4GEYpWl.jpg",
+    "notes": "Chinese, Chicken Rice",
+    "address": "1 Kadayanallur St, #01-10/11 Maxwell Food Centre, Singapore",
+
+    "openingHours": {
+      "open": 10,
+      "close": 17.5,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "No"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8222089, 1.2859151]
+    },
+    "name": "Tian Tian Curry Rice",
+    "uri": "https://i.imgur.com/2DX4mufl.jpg",
+    "notes": "Chinese, Hainanese Pork Chop, Curry Rice, Branch at ION foodcourt",
+    "address": "Blk 116, Bukit Merah View S(151116), Singapore",
+
+    "openingHours": {
+      "open": 9,
+      "close": 21,
+      "off": [1]
+    },
+    "contact": "Contact: 91096732",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8450019, 1.2815821]
+    },
+    "name": "Tong Heng",
+    "notes": "Chinese, Dessert, Pastry (Egg Tart)",
+    "uri": "https://imgur.com/nBJQH5sl.jpg",
+    "address": "285 South Bridge Road, Singapore",
+    "openingHours": {
+      "open": 9,
+      "close": 21,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.7992573, 1.3057768]
+    },
+    "name": "Two Chefs Eating Place",
+    "uri": "https://i.imgur.com/DktTrsIl.jpg",
+    "notes": "Butter Pork Ribs (Milk Powder on top)",
+    "address": "Blk 116 Commonwealth Crescent, #01-129 Singapore 140116, Singapore",
+    "openingHours": {
+      "open": 17,
+      "close": 23,
+      "off": []
+    },
+    "contact": "Contact: 64725361, 94379712",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Uncle Gen’s Hong Kong Cuisine",
+    "uri": "https://i.imgur.com/Z3LP8Y9l.jpg",
+    "notes": "Steamed Rice with Chicken and Salted Fish, Almost everything is good",
+    "address": "Toa Payoh Lor 4  Blk 74 Food Centre #01-03, Singapore",
+    "openingHours": {
+      "open": 6,
+      "close": 13,
+      "off": [1, 2]
+    },
+    "contact": "",
+    "recommend": "Unknown"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.85007, 1.28967]
+    },
+    "name": "Wah Kee Big Prawn Noodles",
+    "uri": "https://i.imgur.com/r7aS6Ool.jpg",
+    "notes": "Chinese, Prawn Noodles, go for $10 or $15 portion",
+    "address": "Blk 41A Cambridge Road Hawker Centre (Pek Kio) #01-15, Singapore",
+    "openingHours": {
+      "open": 7.5,
+      "close": 14,
+      "off": [1]
+    },
+    "contact": "Contact: 96883633",
+    "recommend": "Yes"
+  },
+  {
+    "location": {
+      "type": "Point",
+      "coordinates": [103.8438996, 1.2828593]
+    },
+    "name": "Yum Cha",
+    "uri": "https://i.imgur.com/0k8Oy1Gl.jpg",
+    "notes": "Chinese, Dim Sum, Buffet, Aircon",
+    "address": "20 Trengganu Street, #02-01, Singapore 058479",
+    "openingHours": {
+      "open": 10.5,
+      "close": 22.5,
+      "off": []
+    },
+    "contact": "",
+    "recommend": "Maybe"
+  }
+]

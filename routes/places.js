@@ -39,6 +39,7 @@ router
       const day = parseInt(now.getDay(), 10);
       const hour = parseInt(now.getHours(), 10);
       return Place.find({ "openingHours.close": { $gte: hour } })
+        .find({ "openingHours.open": { $lte: hour } })
         .find({ "openingHours.off": { $ne: day } })
         .then(place => res.json(place))
         .catch(function(error) {

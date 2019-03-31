@@ -65,7 +65,7 @@ router
         location: {
           $nearSphere: {
             $geometry: { type: "Point", coordinates: [coords[1], coords[0]] },
-            $maxDistance: 0.3 * METERS_PER_MILE
+            $maxDistance: 1 * METERS_PER_MILE
           }
         }
       }).then(place => res.json(place));

@@ -38,7 +38,16 @@ router.route("/register").post(async (req, res) => {
     const user = new User(req.body);
     await User.init();
     await user.save();
-    return res.sendStatus(204);
+    const { username, password } = req.body;
+    const validLogin = await isAuthenticated(username, password);
+    if (!validLogin) {
+      throw new Error("You are not authorized");
+    }
+    const payload = { username };
+    const token = await jwt.sign(payload, secret, {
+      expiresIn: "240h"
+    });
+    return res.status(200).json({ token });
   } catch (err) {
     return res.status(400).send(err.message);
   }
@@ -52,7 +61,7 @@ router.route("/login").post(async (req, res) => {
       throw new Error("You are not authorized");
     }
     const payload = { username };
-    const token = await jwt.sign(payload, secret, { expiresIn: "24h" });
+    const token = await jwt.sign(payload, secret, { expiresIn: "240h" });
     return res.status(200).json({ token });
   } catch (err) {
     return res.status(401).send(err.message);

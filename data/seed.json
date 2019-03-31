@@ -838,5 +838,24 @@
     },
     "contact": "",
     "recommend": "Maybe"
+  },
+  {
+    "location": {
+      "coordinates": [103.8418743, 1.3873567],
+      "type": "Point"
+    },
+    "openingHours": {
+      "off": [2],
+      "open": 0,
+      "close": 0
+    },
+    "_id": "5ca05f87c39f3b001ecb005d",
+    "name": "Centre Satay Bee Hoon",
+    "uri": "https://i.imgur.com/DXWN7Wnl.jpg",
+    "notes": "Satay Bee Hoon, Sweet and Savoury",
+    "address": "724 Ang Mo Kio Ave 6 #01-12",
+    "contact": "",
+    "recommend": "Unknown",
+    "__v": 0
   }
 ]

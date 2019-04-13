@@ -152,7 +152,7 @@ describe("Place", () => {
   });
 
   describe("[PUT] Edits an existing place", () => {
-    test("edits a place's notes", async () => {
+    xtest("edits a place's notes", async () => {
       const { _id } = await Place.findOne({ name: "Tong Heng" });
 
       const res = await request(app)

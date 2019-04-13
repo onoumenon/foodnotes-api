@@ -153,13 +153,12 @@ describe("Place", () => {
 
   describe("[PUT] Edits an existing place", () => {
     test("edits a place's notes", async () => {
-      const { _id } = await Place.findOne({ name: "Nogawa" });
-      console.log(route(`/${_id}`));
+      const { _id } = await Place.findOne({ name: "Tong Heng" });
 
       const res = await request(app)
         .put(route(`/${_id}`))
         .send({
-          name: "Nogawa",
+          name: "Tong Heng",
           address: "12 Cross St",
           notes: "Weird Stuff"
         })

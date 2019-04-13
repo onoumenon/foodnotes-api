@@ -2,7 +2,6 @@ const express = require("express");
 const User = require("../models/user");
 const Place = require("../models/place");
 const jwt = require("jsonwebtoken");
-const oh = require("opening_hours");
 
 const router = express.Router();
 const secret = "SECRET";

@@ -34,7 +34,11 @@ router
     const getOneRegex = new RegExp(getOne, "i");
 
     if (time) {
-      const now = new Date(time);
+      const now = new Date(
+        new Date().toLocaleString("en-US", {
+          timeZone: "Asia/Singapore"
+        })
+      );
       const day = parseInt(now.getDay(), 10);
       const hour = parseInt(now.getHours(), 10);
       return Place.find({

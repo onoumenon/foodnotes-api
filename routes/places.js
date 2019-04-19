@@ -7,11 +7,11 @@ const router = express.Router();
 const secret = "SECRET";
 
 const verifyToken = async (req, res, next) => {
-  if (!req.headers.authorization) {
-    throw new Error("Invalid Token");
-  }
-  const token = req.headers.authorization.split("Bearer ")[1];
   try {
+    if (!req.headers.authorization) {
+      throw new Error("Invalid Token");
+    }
+    const token = req.headers.authorization.split("Bearer ")[1];
     const userData = await jwt.verify(token, secret);
 
     const user = await User.findOne({ name: userData.name });
@@ -21,7 +21,7 @@ const verifyToken = async (req, res, next) => {
     }
     next();
   } catch (err) {
-    return res.status(403).json(err.message);
+    return res.sendStatus(403);
   }
 };
 
@@ -50,7 +50,7 @@ router
       })
         .then(place => res.json(place))
         .catch(function(error) {
-          res.status(500).json(error.message);
+          res.status(500).send(error.message);
         });
     }
 
@@ -81,7 +81,7 @@ router
 
     return Place.find().then(place => res.json(place));
   })
-  .post(async (req, res) => {
+  .post(verifyToken, async (req, res) => {
     try {
       const place = new Place(req.body);
       await Place.init();
@@ -89,23 +89,23 @@ router
 
       return res.status(201).json("Success");
     } catch (err) {
-      return res.status(500).json(err.message);
+      return res.status(500).send(err.message);
     }
   });
 
 router
   .route("/:id")
-  .put(async (req, res) => {
+  .put(verifyToken, async (req, res) => {
     try {
       await Place.findByIdAndUpdate(req.params.id, req.body, {
         new: true
       });
       return res.status(202).json("Success");
     } catch (err) {
-      return res.status(404).json(err.message);
+      return res.status(404).send(err.message);
     }
   })
-  .delete(async (req, res) => {
+  .delete(verifyToken, async (req, res) => {
     Place.findByIdAndDelete(req.params.id, (err, place) => {
       if (err) {
         return res.sendStatus(500);

@@ -26,14 +26,6 @@ jobs:
       - run:
           name: Deploy Master to Automation
           command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$AUTO_HEROKU_APP_NAME.git master --force
-  deploy-test:
-    docker:
-      - image: buildpack-deps:trusty
-    steps:
-      - checkout
-      - run:
-          name: Deploy Master to Test
-          command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$TEST_HEROKU_APP_NAME.git master --force
   deploy-prod:
     docker:
       - image: buildpack-deps:trusty
@@ -50,13 +42,6 @@ workflows:
       - deploy-auto:
           requires:
             - build
-      - hold-deploy-test:
-          type: approval
-          requires:
-            - deploy-auto
-      - deploy-test:
-          requires:
-            - hold-deploy-test
       - hold-deploy-prod:
           type: approval
           requires:

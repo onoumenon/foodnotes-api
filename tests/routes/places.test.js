@@ -134,17 +134,14 @@ describe("Place", () => {
     test("creates a new place record", async () => {
       jwt.verify.mockResolvedValueOnce({ id: 100 });
       User.findOne.mockResolvedValueOnce({ id: "123" });
-      const res = await request(app)
+      await request(app)
         .post(route())
         .set("Authorization", "Bearer my-awesome-token")
-        .send({
-          name: "Hoo Kee Rice Dumplings",
-          address: "Amoy Street Food Centre #01-18, Singapore"
-        })
+        .send({ name: "Huggs", address: "10 Cross St" })
         .expect(201);
 
-      const place = await Place.findOne({ name: "Hoo Kee Rice Dumplings" });
-      expect(place.name).toBe("Hoo Kee Rice Dumplings");
+      const place = await Place.findOne({ name: "Huggs" });
+      expect(place.name).toBe("Huggs");
     });
   });
 

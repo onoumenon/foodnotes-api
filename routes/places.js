@@ -32,15 +32,47 @@ router
     const notesRegex = new RegExp(notes, "i");
     const nameRegex = new RegExp(name, "i");
     const getOneRegex = new RegExp(getOne, "i");
+    const now = new Date(
+      new Date().toLocaleString("en-US", {
+        timeZone: "Asia/Singapore"
+      })
+    );
+    const day = parseInt(now.getDay(), 10);
+    const hour = parseInt(now.getHours(), 10);
+
+    if (time && notes) {
+      return Place.find({
+        $and: [
+          { "openingHours.close": { $gte: hour } },
+          { "openingHours.open": { $lte: hour } },
+          { "openingHours.off": { $ne: day } }
+        ]
+      })
+        .find({ notes: notesRegex })
+        .then(place => res.json(place))
+        .then(place => res.json(place))
+        .catch(function(error) {
+          res.status(500).send(error.message);
+        });
+    }
+
+    if (time && name) {
+      return Place.find({
+        $and: [
+          { "openingHours.close": { $gte: hour } },
+          { "openingHours.open": { $lte: hour } },
+          { "openingHours.off": { $ne: day } }
+        ]
+      })
+        .find({ name: nameRegex })
+        .then(place => res.json(place))
+        .then(place => res.json(place))
+        .catch(function(error) {
+          res.status(500).send(error.message);
+        });
+    }
 
     if (time) {
-      const now = new Date(
-        new Date().toLocaleString("en-US", {
-          timeZone: "Asia/Singapore"
-        })
-      );
-      const day = parseInt(now.getDay(), 10);
-      const hour = parseInt(now.getHours(), 10);
       return Place.find({
         $and: [
           { "openingHours.close": { $gte: hour } },

@@ -4,7 +4,10 @@ const Place = require("../models/place");
 const jwt = require("jsonwebtoken");
 
 const router = express.Router();
-const secret = "SECRET";
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+const secret = process.env.SECRET;
 
 const verifyToken = async (req, res, next) => {
   try {

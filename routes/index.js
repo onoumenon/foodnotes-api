@@ -9,7 +9,10 @@ router.route("/").get((req, res) => {
   res.sendStatus(200);
 });
 
-const secret = "SECRET";
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+const secret = process.env.SECRET;
 
 const isAuthenticated = async (username, password) => {
   try {
